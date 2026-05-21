@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pa" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#D32F2F" />
+  <meta property="og:site_name" content="SUNAM ALERT" />
+  <meta property="og:type" content="website" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ਸੰਪਰਕ ਕਰੋ - SUNAM ALERT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><img src="sunamAlertlogo.jpg" alt="Sunam Alert logo" /></div>
+        <span class="logo-text">SUNAM ALERT</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">ਮੁੱਖ ਪੰਨਾ</a>
+        <a href="sports.html">ਖੇਡਾਂ</a>
+        <a href="politics.html">ਰਾਜਨੀਤੀ</a>
+        <a href="entertainment.html">ਮਨੋਰੰਜਨ</a>
+        <a href="contact.html">ਸੰਪਰਕ ਕਰੋ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://www.instagram.com/sunamalert" target="_blank" rel="noopener" class="btn-social instagram" title="Instagram"><img src="instagram-logo.webp" alt="Instagram" /></a>
+        <a href="https://www.facebook.com/sunamalert" target="_blank" rel="noopener" class="btn-social facebook" title="Facebook"><img src="facebook-logo.webp" alt="Facebook" /></a>
+        <a href="admin.html" class="btn-admin-circle" title="Admin Panel">🔐</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contact page doesn't need ticker or sidebar -->
+  <div class="full-width-page">
+
+    <!-- Page label -->
+    <div style="margin-bottom:8px;">
+      <span
+        style="background:var(--red);color:white;font-size:11px;font-weight:800;letter-spacing:1px;padding:4px 12px;border-radius:3px;text-transform:uppercase;">ਸੰਪਰਕ
+        ਕਰੋ</span>
+    </div>
+
+    <div class="contact-layout">
+      <!-- LEFT PANEL -->
+      <div class="contact-left">
+        <h1>ਅਸੀਂ ਤੁਹਾਡੀ ਗੱਲ ਸੁਣਨ ਲਈ ਇੱਥੇ ਹਾਂ।</h1>
+        <p>SUNAM ALERT ਹਮੇਸ਼ਾ ਆਪਣੇ ਪਾਠਕਾਂ ਨਾਲ ਜੁੜੇ ਰਹਿਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਦਾ ਹੈ। ਕਿਸੇ ਵੀ ਸੁਝਾਅ ਜਾਂ ਖ਼ਬਰ ਲਈ ਸਾਨੂੰ ਸੁਨੇਹਾ ਭੇਜੋ।
+        </p>
+
+        <!-- WhatsApp Box -->
+        <div class="whatsapp-box">
+          <h3>💬 WhatsApp 'ਤੇ ਸੁਨੇਹਾ ਭੇਜੋ</h3>
+          <p>ਸਾਨੂੰ ਸਿੱਧਾ WhatsApp ਕਰੋ ਅਤੇ ਤੁਰੰਤ ਜਵਾਬ ਪਾਓ। ਤੁਸੀਂ ਖ਼ਬਰਾਂ ਜਾਂ ਆਪਣੇ ਵਿਚਾਰ ਸਾਡੇ ਨਾਲ ਸਾਂਝੇ ਕਰ ਸਕਦੇ ਹੋ।</p>
+          <a id="wa-btn" href="#" class="btn-whatsapp">
+            💬 ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ →
+          </a>
+        </div>
+
+        <!-- News Tip WhatsApp -->
+        <div class="whatsapp-box" style="background:#e3f2fd;border-color:#90caf9;margin-bottom:20px;">
+          <h3 style="color:#1565c0;">📰 WhatsApp News Tip</h3>
+          <p style="color:#555;">ਕੋਈ ਖ਼ਬਰ ਹੈ? ਸਾਨੂੰ WhatsApp 'ਤੇ ਭੇਜੋ ਅਤੇ ਅਸੀਂ ਤੁਹਾਡੀ ਖ਼ਬਰ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰਾਂਗੇ।</p>
+          <a href="#" onclick="sendNewsTip(); return false;" class="btn-whatsapp" style="background:#1565c0;">
+            📤 ਖ਼ਬਰ ਟਿਪ ਭੇਜੋ →
+          </a>
+        </div>
+
+        <!-- Reviewer -->
+        <!-- aise add kar sakte hai -->
+        <!-- <div class="review-box">
+          <div class="review-label">ਸਾਡੇ ਪਾਠਕਾਂ ਦੇ ਵਿਚਾਰ</div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=60&q=80" alt="reviewer"
+              style="width:48px;height:48px;border-radius:50%;object-fit:cover;" />
+            <div>
+              <div class="stars">★★★★★</div>
+              <div class="reviewer-name">ਗੁਰਪ੍ਰੀਤ ਸਿੰਘ</div>
+            </div>
+          </div>
+          <div class="reviewer-review">"SUNAM ALERT ਹਮੇਸ਼ਾ ਸਹੀ ਅਤੇ ਭਰੋਸੇਯੋਗ ਖ਼ਬਰਾਂ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ। ਉਨ੍ਹਾਂ ਦੀ ਟੀਮ ਬਹੁਤ
+            ਤੇਜ਼ੀ ਨਾਲ ਸੁਣਵਾਈ ਕਰਦੀ ਹੈ।"</div>
+        </div> -->
+
+        <!-- Office info -->
+        <div class="office-card" style="margin-top:20px;">
+          <div class="office-title">ਸਾਡਾ ਮੁੱਖ ਦਫ਼ਤਰ</div>
+          <div class="office-addr">📍 Peeran Wala Gate, Sunam - 148028, Punjab, India</div>
+          <div class="office-phone">📞 +91 9216813000</div>
+          <!-- aise map add kar sakte hai par ye link sahi nahi hai -->
+          <!-- <div style="margin-top:14px;border-radius:8px;overflow:hidden;height:200px;">
+            <iframe width="100%" height="200" frameborder="0" style="border:0;"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&q=Peeran+Wala+Gate+Sunam+Punjab+India&zoom=15"
+              allowfullscreen>
+            </iframe>
+          </div> -->
+        </div>
+
+        <!-- Social -->
+        <div class="social-connect" style="margin-top:20px;">
+          <p>ਸਾਡੇ ਨਾਲ ਜੁੜੋ</p>
+          <div class="social-grid">
+            <a href="https://share.google/nPIYW8Nnlcsq6pZNR" target="_blank" class="social-btn fb">
+              <span class="sico">📘</span> Facebook
+            </a>
+            <a href="https://www.instagram.com/sunamalert?igsh=MXJ1ZGxneTV1a2ZkYg==" target="_blank"
+              class="social-btn ig">
+              <span class="sico">📷</span> Instagram
+            </a>
+            <a href="https://twitter.com" target="_blank" class="social-btn tw">
+              <span class="sico">🐦</span> X / Twitter
+            </a>
+            <a href="https://youtube.com/@sunamalert?si=nPwuXMo2p0IJeChh" target="_blank" class="social-btn yt">
+              <span class="sico">▶</span> YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL — Contact Form -->
+      <div class="contact-form-box">
+        <h3>✉ ਸਾਨੂੰ ਲਿਖੋ</h3>
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">ਪੂਰਾ ਨਾਮ</label>
+              <input type="text" id="contact-name" placeholder="ਤੁਹਾਡਾ ਨਾਮ ਲਿਖੋ" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email ਪਤਾ</label>
+              <input type="email" id="contact-email" placeholder="example@gmail.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">ਵਿਸ਼ਾ</label>
+            <select id="contact-subject">
+              <option value="ਖ਼ਬਰ ਦੀ ਜਾਣਕਾਰੀ">ਖ਼ਬਰ ਦੀ ਜਾਣਕਾਰੀ</option>
+              <option value="ਸ਼ਿਕਾਇਤ">ਸ਼ਿਕਾਇਤ</option>
+              <option value="ਇਸ਼ਤਿਹਾਰ">ਇਸ਼ਤਿਹਾਰ</option>
+              <option value="ਹੋਰ">ਹੋਰ</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">ਸੁਨੇਹਾ</label>
+            <textarea id="contact-message" placeholder="ਆਪਣਾ ਸੁਨੇਹਾ ਇੱਥੇ ਲਿਖੋ..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">ਸੁਨੇਹਾ ਭੇਜੋ</button>
+        </form>
+
+        <!-- WhatsApp quick tip inside form box -->
+        <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);text-align:center;">
+          <p style="font-size:13px;color:#666;margin-bottom:10px;">ਜਾਂ ਸਿੱਧਾ WhatsApp ਕਰੋ</p>
+          <a id="wa-btn-2" href="#" onclick="sendWhatsApp(); return false;" class="btn-whatsapp"
+            style="justify-content:center;">
+            💬 WhatsApp 'ਤੇ ਸੁਨੇਹਾ ਭੇਜੋ
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-text">SUNAM ALERT</span>
+        <p>ਸੁਨਾਮ ਅਤੇ ਆਸ-ਪਾਸ ਦੇ ਇਲਾਕਿਆਂ ਦੀ ਹਰ ਛੋਟੀ-ਵੱਡੀ ਖ਼ਬਰ ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਡੇ ਤੱਕ ਪਹੁੰਚਾਉਣ ਦਾ ਸਾਡਾ ਅਹਿਦ ਹੈ।</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">ਮੁੱਖ ਪੰਨਾ</a></li>
+          <li><a href="sports.html">ਖੇਡਾਂ</a></li>
+          <li><a href="politics.html">ਰਾਜਨੀਤੀ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <ul>
+          <li><a href="team.html">ਸਾਡੀ ਟੀਮ</a></li>
+          <li><a href="contact.html">ਸੰਪਰਕ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact Us</h4><a href="mailto:thesunamalert@gmail.com">✉ thesunamalert@gmail.com</a><a href="#"
+          class="btn-news-tip">💬 WhatsApp News Tip</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 SUNAM ALERT. All rights reserved.</span>
+      <div class="server-status">
+        <div class="server-dot"></div> SERVER ONLINE
+      </div>
+    </div>
+  </footer>
+
+  <script src="news-engine.js"></script>
+  <script src="enhancements.js"></script>
+  <script src="main.js"></script>
+  <script src="contact.js"></script>
+</body>
+
+</html>

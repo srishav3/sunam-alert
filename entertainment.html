@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pa" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#D32F2F" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ਮਨੋਰੰਜਨ - SUNAM ALERT</title>
+  <meta name="description" content="SUNAM ALERT - ਮਨੋਰੰਜਨ ਖ਼ਬਰਾਂ" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><img src="sunamAlertlogo.jpg" alt="Sunam Alert logo" /></div>
+        <span class="logo-text">SUNAM ALERT</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">ਮੁੱਖ ਪੰਨਾ</a>
+        <a href="sports.html">ਖੇਡਾਂ</a>
+        <a href="politics.html">ਰਾਜਨੀਤੀ</a>
+        <a href="entertainment.html" class="active">ਮਨੋਰੰਜਨ</a>
+        <a href="contact.html">ਸੰਪਰਕ ਕਰੋ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://www.instagram.com/sunamalert" target="_blank" rel="noopener" class="btn-social instagram" title="Instagram"><img src="instagram-logo.webp" alt="Instagram" /></a>
+        <a href="https://www.facebook.com/sunamalert" target="_blank" rel="noopener" class="btn-social facebook" title="Facebook"><img src="facebook-logo.webp" alt="Facebook" /></a>
+        <a href="admin.html" class="btn-admin-circle" title="Admin Panel">🔐</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="breaking-bar">
+    <div class="breaking-label">BREAKING</div>
+    <div class="ticker-wrap">
+      <div class="ticker-track">
+        <span class="ticker-item">SUNAM ALERT 'ਤੇ ਤੁਹਾਡਾ ਸੁਆਗਤ ਹੈ</span>
+        <span class="ticker-sep">•</span>
+        <span class="ticker-item">ਤਾਜ਼ੀਆਂ ਖ਼ਬਰਾਂ ਲਈ ਸਾਡੇ ਨਾਲ ਜੁੜੇ ਰਹੋ</span>
+        <span class="ticker-sep">•</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+
+    <aside class="sidebar-left">
+
+      <div class="mobile-ad-slot"></div>
+      <div class="widget trending-widget sidebar-trending-widget">
+        <div class="trending-header">🔥 TRENDING NEWS</div>
+        <div id="trending-list">
+          <div class="trending-item">
+            <span class="trending-num">#1</span>
+            <div><span class="trending-cat">SunamNews</span>
+              <span class="trending-title">Admin ਪੈਨਲ ਤੋਂ trending news publish ਕਰੋ।</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="section-header">
+        <h2 class="section-title">🎬 ਮਨੋਰੰਜਨ</h2>
+        <a href="https://share.google/nPIYW8Nnlcsq6pZNR" target="_blank" class="see-all">Facebook 'ਤੇ ਦੇਖੋ →</a>
+      </div>
+
+      <div id="admin-news-section"></div>
+
+      <div id="no-news-msg" style="display:none;text-align:center;padding:80px 20px;color:#999;">
+        <div class="empty-ico">📭</div>
+        <h3 style="font-size:18px;font-weight:700;color:#555;margin-bottom:8px;">ਕੋਈ ਖ਼ਬਰ ਨਹੀਂ</h3>
+        <p style="font-size:14px;">ਇਸ ਸੈਕਸ਼ਨ ਵਿੱਚ ਫਿਲਹਾਲ ਕੋਈ ਖ਼ਬਰ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</p>
+      </div>
+
+      <a href="https://share.google/nPIYW8Nnlcsq6pZNR" target="_blank" class="btn-see-more">
+        📰 ਹੋਰ ਖ਼ਬਰਾਂ ਦੇਖੋ — Facebook 'ਤੇ →
+      </a>
+    </main>
+
+    <aside class="sidebar-right">
+      <div class="ad-box ad-box-large" data-ad-slot="ad1">
+        <div class="ad-label">ADVERTISEMENT</div>
+        <div class="ad-placeholder">
+          <div class="ad-ico">📢</div>
+          <div>Big Ad Space<br /><small>AD1</small></div>
+        </div>
+        <div class="ad-report">Report Ad</div>
+      </div>
+      <div class="weather-widget" data-weather-widget>
+        <div class="weather-top">
+          <div>
+            <div class="weather-location">Sunam, Punjab</div>
+            <div class="weather-temp">--°</div>
+          </div>
+          <div class="weather-icon">☀️</div>
+        </div>
+        <div class="weather-desc">Loading weather...</div>
+        <div class="weather-stats">
+          <div class="weather-stat"><strong>Humidity</strong><span data-weather-humidity>--%</span></div>
+          <div class="weather-stat"><strong>Wind</strong><span data-weather-wind>-- km/h</span></div>
+        </div>
+      </div>
+      <div class="ad-box ad-box-small" data-ad-slot="ad2">
+        <div class="ad-label">ADVERTISEMENT</div>
+        <div class="ad-placeholder ad-placeholder-small">
+          <div class="ad-ico">📢</div>
+          <div>Small Ad Space<br /><small>AD2</small></div>
+        </div>
+        <div class="ad-report">Report Ad</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-text">SUNAM ALERT</span>
+        <p>ਸੁਨਾਮ ਅਤੇ ਆਸ-ਪਾਸ ਦੇ ਇਲਾਕਿਆਂ ਦੀ ਹਰ ਛੋਟੀ-ਵੱਡੀ ਖ਼ਬਰ ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਡੇ ਤੱਕ ਪਹੁੰਚਾਉਣ ਦਾ ਸਾਡਾ ਅਹਿਦ ਹੈ।</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">ਮੁੱਖ ਪੰਨਾ</a></li>
+          <li><a href="sports.html">ਖੇਡਾਂ</a></li>
+          <li><a href="politics.html">ਰਾਜਨੀਤੀ</a></li>
+          <li><a href="entertainment.html">ਮਨੋਰੰਜਨ</a></li>
+          <li><a href="contact.html">ਸੰਪਰਕ ਕਰੋ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <ul>
+          <li><a href="team.html">ਸਾਡੀ ਟੀਮ</a></li>
+          <li><a href="contact.html">ਸੰਪਰਕ</a></li>
+          <li><a href="admin.html" style="color:var(--red);font-weight:700;">🔐 Admin</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact Us</h4>
+        <a href="mailto:thesunamalert@gmail.com">✉ thesunamalert@gmail.com</a>
+        <a href="#" class="btn-news-tip">💬 WhatsApp News Tip</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 SUNAM ALERT. All rights reserved.</span>
+      <div class="server-status">
+        <div class="server-dot"></div> SERVER ONLINE
+      </div>
+    </div>
+  </footer>
+
+  <script src="news-engine.js"></script>
+  <script src="enhancements.js"></script>
+  <script src="main.js"></script>
+  <script src="trending-news.js"></script>
+  <script src="contact.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        var section = document.getElementById('admin-news-section');
+        var msg = document.getElementById('no-news-msg');
+        if (section && msg && section.innerHTML.trim() === '') {
+          msg.style.display = 'block';
+        }
+      }, 300);
+    });
+  </script>
+</body>
+
+</html>
