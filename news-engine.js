@@ -182,69 +182,36 @@ function renderNews(containerId, news, mode) {
   }
 
   let html = '';
-  const isMobile = window.matchMedia('(max-width: 900px)').matches;
+  // Show ads in feed for everyone since sidebars might be hidden on some resolutions
   if (news[0]) html += buildHero(news[0]);
 
-  if (!isMobile) {
-    if (news.length > 1) {
-      const remaining = news.slice(1, 51);
-      const gridItems = remaining.slice(0, 12);
-      const listItems = remaining.slice(12);
-      if (gridItems.length > 0) {
-        html += '<div class="news-grid" style="margin-top:20px;">' + gridItems.map(buildCard).join('') + '</div>';
-      }
-      if (listItems.length > 0) {
-        html += '<div class="news-list" style="margin-top:16px;">' + listItems.map(buildListItem).join('') + '</div>';
-      }
-    }
-  } else {
-    const topThree = news.slice(1, 4);
-    const nextFour = news.slice(4, 8);
-    const rest = news.slice(8, 51);
+  const topThree = news.slice(1, 4);
+  const nextFour = news.slice(4, 8);
+  const rest = news.slice(8, 51);
 
-    if (topThree.length > 0) {
-      html += '<div class="news-grid" style="margin-top:20px;">' + topThree.map(buildCard).join('') + '</div>';
-    }
-    if (news.length > 4) {
-      html += '<div class="mobile-news-ad" data-ad-slot="ad1"></div>';
-    }
-    if (nextFour.length > 0) {
-      html += '<div class="news-grid" style="margin-top:16px;">' + nextFour.map(buildCard).join('') + '</div>';
-    }
-    if (news.length > 8) {
-      html += '<div class="mobile-news-ad-full" data-ad-slot="ad2"></div>';
-    }
-    if (rest.length > 0) {
-      html += '<div class="news-list" style="margin-top:16px;">' + rest.map(buildListItem).join('') + '</div>';
-    }
+  if (topThree.length > 0) {
+    html += '<div class="news-grid" style="margin-top:20px;">' + topThree.map(buildCard).join('') + '</div>';
   }
+  
+  // Inject first ad slot
+  if (news.length > 4) {
+    html += '<div class="mobile-news-ad" data-ad-slot="ad1"></div>';
+  }
+
+  if (nextFour.length > 0) {
+    html += '<div class="news-grid" style="margin-top:16px;">' + nextFour.map(buildCard).join('') + '</div>';
+  }
+
+  // Inject second ad slot
+  if (news.length > 8) {
+    html += '<div class="mobile-news-ad-full" data-ad-slot="ad2"></div>';
+  }
+
+  if (rest.length > 0) {
+    html += '<div class="news-list" style="margin-top:16px;">' + rest.map(buildListItem).join('') + '</div>';
+  }
+
   el.innerHTML = html;
-
-  if (isMobile) {
-    const smallPlaceholder = '<div class="ad-box ad-box-small"><div class="ad-label">ADVERTISEMENT</div><div class="ad-placeholder ad-placeholder-small"><div class="ad-ico">📢</div><div>AD1</div></div></div>';
-    const largePlaceholder = '<div class="ad-box ad-box-large"><div class="ad-label">ADVERTISEMENT</div><div class="ad-placeholder"><div class="ad-ico">📢</div><div>AD2</div></div></div>';
-    document.querySelectorAll('.mobile-news-ad[data-ad-slot="ad1"]').forEach(slot => {
-      if (!slot.innerHTML.trim()) slot.innerHTML = smallPlaceholder;
-    });
-    document.querySelectorAll('.mobile-news-ad-full[data-ad-slot="ad2"]').forEach(slot => {
-      if (!slot.innerHTML.trim()) slot.innerHTML = largePlaceholder;
-    });
-
-    fetchAds().then(ads => {
-      document.querySelectorAll('.mobile-news-ad[data-ad-slot="ad1"]').forEach(slot => {
-        const ad = ads.ad1;
-        if (ad && ad.img) {
-          slot.innerHTML = '<div class="ad-box ad-box-small"><div class="ad-label">ADVERTISEMENT</div><a href="' + (ad.link || '#') + '" target="_blank"><img class="ad-image" src="' + ad.img + '" alt="' + (ad.title || 'Ad') + '" /></a><div class="ad-title">' + (ad.title || '') + '</div></div>';
-        }
-      });
-      document.querySelectorAll('.mobile-news-ad-full[data-ad-slot="ad2"]').forEach(slot => {
-        const ad = ads.ad2;
-        if (ad && ad.img) {
-          slot.innerHTML = '<div class="ad-box ad-box-large"><div class="ad-label">ADVERTISEMENT</div><a href="' + (ad.link || '#') + '" target="_blank"><img class="ad-image" src="' + ad.img + '" alt="' + (ad.title || 'Ad') + '" /></a><div class="ad-title">' + (ad.title || '') + '</div></div>';
-        }
-      });
-    });
-  }
 }
 
 async function injectNews(containerId, pageFilter, mode) {
@@ -268,13 +235,25 @@ async function injectAds() {
     const slot = box.getAttribute('data-ad-slot');
     const ad = ads[slot];
     if (ad && ad.img) {
-      box.innerHTML = `
+      const isSmall = box.classList.contains('ad-box-small') || box.classList.contains('mobile-news-ad') || slot === 'ad2';
+      const boxClass = isSmall ? 'ad-box-small' : 'ad-box-large';
+      
+      // If the container is already an ad-box, update its content. 
+      // Otherwise, create an ad-box wrapper inside.
+      const content = `
         <div class="ad-label">ADVERTISEMENT</div>
         <a href="${ad.link || '#'}" target="_blank">
           <img class="ad-image" src="${ad.img}" alt="${ad.title || 'Ad'}" />
         </a>
         <div class="ad-title">${ad.title || ''}</div>
       `;
+
+      if (box.classList.contains('ad-box')) {
+        box.innerHTML = content;
+        box.className = 'ad-box ' + boxClass;
+      } else {
+        box.innerHTML = `<div class="ad-box ${boxClass}">${content}</div>`;
+      }
     }
   });
 }
@@ -282,7 +261,7 @@ async function injectAds() {
 document.addEventListener('DOMContentLoaded', async function () {
   const page = window.location.pathname.split('/').pop() || 'index.html';
   await injectTicker();
-  await injectAds();
+  
   if (page === 'index.html' || page === '') {
     await injectNews('admin-news-section', 'home', 'all');
   } else if (page === 'news.html') {
@@ -296,6 +275,9 @@ document.addEventListener('DOMContentLoaded', async function () {
   } else if (page === 'live.html') {
     await injectNews('admin-news-section', 'live', 'all');
   }
+  
+  // Call injectAds last so it picks up both static and dynamically injected slots
+  await injectAds();
 });
 
 

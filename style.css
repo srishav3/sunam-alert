@@ -3191,9 +3191,6 @@ button {
   .mobile-weather-slot,
   .mobile-ad1-slot,
   .mobile-ad2-slot,
-  .ad-box,
-  .mobile-news-ad,
-  .mobile-news-ad-full,
   .sidebar-right .weather-widget {
     display: none !important;
   }

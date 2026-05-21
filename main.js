@@ -68,34 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// Load advertisement slots managed by the backend admin API.
-async function fetchSiteAds() {
-  try {
-    const res = await fetch('/api/ads');
-    if (!res.ok) throw new Error('Failed to load ads');
-    return await res.json();
-  } catch {
-    return {};
-  }
-}
-function renderSiteAds(ads) {
-  document.querySelectorAll('[data-ad-slot]').forEach(box => {
-    const slot = box.getAttribute('data-ad-slot');
-    const ad = ads[slot];
-    if (!ad || !ad.img) return;
-    const hrefOpen = ad.link ? '<a href="' + ad.link + '" target="_blank" rel="noopener">' : '';
-    const hrefClose = ad.link ? '</a>' : '';
-    box.innerHTML = '<div class="ad-label">ADVERTISEMENT</div>' +
-      hrefOpen + '<img class="ad-image" src="' + ad.img + '" alt="' + (ad.title || slot.toUpperCase()) + '" />' + hrefClose +
-      (ad.title ? '<div class="ad-title">' + ad.title + '</div>' : '') +
-      '<div class="ad-report">' + slot.toUpperCase() + '</div>';
-  });
-}
-document.addEventListener('DOMContentLoaded', async function () {
-  const ads = await fetchSiteAds();
-  renderSiteAds(ads);
-});
-
 // Weather code labels used by the backend weather widget endpoint.
 const WEATHER_CODE_LABELS = {
   0: ['☀️', 'Clear sky'],
@@ -205,7 +177,7 @@ function placeMobileSidebarSlots() {
   }
 
   // Ticker and Ad data should be fetched and started on all screen sizes
-  fetchSiteAds().then(ads => {
+  fetchAds().then(ads => {
     // Clear previous ads in state
     mobileTickerState.ads = [];
 
