@@ -118,8 +118,6 @@ sunam-alert/
 ├── logs/                   # Error/contact logs
 │
 ├── README.md               # This file
-├── DEPLOYMENT_GUIDE.md     # Complete deployment guide
-├── SUPABASE_SETUP.md       # Database setup guide
 └── manifest.json           # PWA config
 ```
 
@@ -383,16 +381,12 @@ curl -X POST http://localhost:3000/api/admin/login \
 
 **Need Help?**
 
-1. **Check Docs:**
-   - DEPLOYMENT_GUIDE.md - Full deployment walkthrough
-   - SUPABASE_SETUP.md - Database configuration
-
-2. **Community:**
+1. **Community:**
    - Stack Overflow (tag: node.js, supabase)
    - GitHub Issues (create issue in repo)
    - Reddit: r/nodejs, r/webdev
 
-3. **Official Docs:**
+2. **Official Docs:**
    - Render: https://render.com/docs
    - Supabase: https://supabase.com/docs
    - Node.js: https://nodejs.org/docs
