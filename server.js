@@ -19,7 +19,7 @@ const ALLOWED_VIDEO_TYPES = ['video/mp4', 'video/webm', 'video/quicktime'];
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 500, // request limit per 15-minute window
+  max: 100, // request limit per 15-minute window
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'Too many requests, please try again later.' }
@@ -27,7 +27,7 @@ const limiter = rateLimit({
 
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 50, // login attempts limit per 15-minute window
+  max: 10, // login attempts limit per 15-minute window
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'Too many login attempts, please try again later.' }

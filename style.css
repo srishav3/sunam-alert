@@ -1601,7 +1601,7 @@ button {
 
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
@@ -3302,12 +3302,6 @@ button {
   @keyframes tickerFadeUp {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Other mobile adjustments */
-    margin: 12px 0;
-    display: flex;
-    justify-content: center;
   }
 
   .mobile-news-ad .ad-box {

@@ -192,19 +192,9 @@ function renderNews(containerId, news, mode) {
   if (topThree.length > 0) {
     html += '<div class="news-grid" style="margin-top:20px;">' + topThree.map(buildCard).join('') + '</div>';
   }
-  
-  // Inject first ad slot
-  if (news.length > 4) {
-    html += '<div class="mobile-news-ad" data-ad-slot="ad1"></div>';
-  }
 
   if (nextFour.length > 0) {
     html += '<div class="news-grid" style="margin-top:16px;">' + nextFour.map(buildCard).join('') + '</div>';
-  }
-
-  // Inject second ad slot
-  if (news.length > 8) {
-    html += '<div class="mobile-news-ad-full" data-ad-slot="ad2"></div>';
   }
 
   if (rest.length > 0) {

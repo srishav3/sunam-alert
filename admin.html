@@ -371,7 +371,6 @@
       background: #e0e0e0;
     }
 
-    /* News list in admin */
     .news-admin-list {
       /* add styles later */
     }
@@ -618,25 +617,6 @@
       }
 
       .admin-sidebar {
-        display: none;
-      }
-
-      .stats-row {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ADMIN MOBILE NAV FIX - 2026-04-26 */
-    @media (max-width: 768px) {
-      .admin-body {
-        grid-template-columns: 1fr;
-      }
-
-      .admin-sidebar {
         display: flex;
         position: sticky;
         top: 56px;
@@ -681,6 +661,10 @@
 
       .stats-row {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1772,7 +1756,7 @@
       setTimeout(() => { el.className = 'admin-alert'; }, 4000);
     }
 
-    // ============ EVENT LISTENERS (Fix CSP issue) ============
+    // ============ EVENT LISTENERS ============
     
     // Navigation items
     document.getElementById('nav-dashboard')?.addEventListener('click', function(e) {
